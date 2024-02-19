@@ -4,13 +4,13 @@ echo "deleting old app"
 sudo rm -rf /var/www/
 
 echo "creating app folder"
-sudo mkdir -p /var/www/test-app 
+sudo mkdir -p /var/www/langchain-app 
 
 echo "moving files to app folder"
-sudo mv  * /var/www/test-app
+sudo mv  * /var/www/langchain-app
 
 # Navigate to the app directory
-cd /var/www/test-app/
+cd /var/www/langchain-app/
 sudo mv env .env
 
 sudo apt-get update
@@ -38,7 +38,7 @@ server {
 
     location / {
         include proxy_params;
-        proxy_pass http://unix:/var/www/test-app/myapp.sock;
+        proxy_pass http://unix:/var/www/langchain-app/myapp.sock;
     }
 }
 EOF'
@@ -57,5 +57,5 @@ sudo rm -rf myapp.sock
 # # Replace 'server:app' with 'yourfile:app' if your Flask instance is named differently.
 # # gunicorn --workers 3 --bind 0.0.0.0:8000 server:app &
 echo "starting gunicorn"
-sudo gunicorn --workers 3 --bind unix:myapp.sock  app:app --user www-data --group www-data --daemon
+sudo gunicorn --workers 1 --bind unix:myapp.sock  app:app --user www-data --group www-data --daemon
 echo "started gunicorn 🚀"
