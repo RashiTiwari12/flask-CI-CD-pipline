@@ -1,0 +1,7 @@
+beautifulsoup4
+Flask
+pymongo
+Requests
+gunicorn
+python-dotenv 
+flask
