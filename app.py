@@ -6,7 +6,7 @@ from flask import Flask, render_template, request, jsonify
 # from bs4 import BeautifulSoup
 
 
-# uri = "mongodb+srv://Rashi01:rashi123456@cluster0.sevu3jt.mongodb.net/?retryWrites=true&w=majority"
+# uri = "mongodb+srv://username:password@cluster0.sevu3jt.mongodb.net/?retryWrites=true&w=majority"
 # client = MongoClient(uri, server_api=ServerApi("1"))
 # db = client.dbsparta
 # all_users = list(db.users01.find({}, {"id": False}))
